@@ -4,7 +4,11 @@ import com.otienochris.expdweb.domain.Project;
 import com.otienochris.expdweb.services.interfaces.ProjectService;
 
 import java.util.List;
-
+/**
+ * @author otien christopherochiengotieno@gmail.com
+ * @version 1.0
+ * @since 01/09/2021
+ */
 public class ProjectServiceImpl implements ProjectService {
     @Override
     public List<Project> getAllProjects() {

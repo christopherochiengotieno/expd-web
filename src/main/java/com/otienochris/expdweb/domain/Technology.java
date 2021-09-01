@@ -10,6 +10,12 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+/**
+ * @author otien christopherochiengotieno@gmail.com
+ * @version 1.0
+ * @since 01/09/2021
+ */
+
 @Getter
 @Setter
 @ToString

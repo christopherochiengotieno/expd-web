@@ -4,6 +4,11 @@ import com.otienochris.expdweb.domain.Technology;
 import com.otienochris.expdweb.services.interfaces.TechnologyService;
 
 import java.util.List;
+/**
+ * @author otien christopherochiengotieno@gmail.com
+ * @version 1.0
+ * @since 01/09/2021
+ */
 
 public class TechnologyServiceImpl implements TechnologyService {
     @Override
