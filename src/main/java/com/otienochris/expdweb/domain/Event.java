@@ -1,5 +1,6 @@
 package com.otienochris.expdweb.domain;
 
+import com.otienochris.expdweb.utils.converters.CreationDateConverter;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
@@ -35,10 +36,14 @@ public class Event {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Link> links;
 
+    @Convert(converter = CreationDateConverter.class)
     @CreationTimestamp
     private Timestamp creationDate;
+
+    @Convert(converter = CreationDateConverter.class)
     @UpdateTimestamp
     private Timestamp modificationDate;
+
     @Version
     private Integer version;
 

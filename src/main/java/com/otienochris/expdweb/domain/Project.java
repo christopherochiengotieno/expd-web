@@ -1,15 +1,13 @@
 package com.otienochris.expdweb.domain;
 
 import com.otienochris.expdweb.enums.ProgrammingLanguage;
+import com.otienochris.expdweb.utils.converters.CreationDateConverter;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Version;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 @Getter
@@ -31,8 +29,11 @@ public class Project {
     private String framework;
     private String Description;
 
+    @Convert(converter = CreationDateConverter.class)
     @CreationTimestamp
     private Timestamp creationDate;
+
+    @Convert(converter = CreationDateConverter.class)
     @UpdateTimestamp
     private Timestamp modificationDate;
     @Version

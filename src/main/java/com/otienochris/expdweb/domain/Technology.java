@@ -1,5 +1,6 @@
 package com.otienochris.expdweb.domain;
 
+import com.otienochris.expdweb.utils.converters.CreationDateConverter;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
@@ -27,8 +28,11 @@ public class Technology {
     private String title;
     private String description;
 
+    @Convert(converter = CreationDateConverter.class)
     @CreationTimestamp
     private Timestamp creationDate;
+
+    @Convert(converter = CreationDateConverter.class)
     @UpdateTimestamp
     private Timestamp modificationDate;
     @Version
