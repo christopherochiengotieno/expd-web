@@ -2,6 +2,7 @@ package com.otienochris.expdweb.domain;
 
 import com.otienochris.expdweb.enums.ProgrammingLanguage;
 import com.otienochris.expdweb.utils.converters.CreationDateConverter;
+import com.otienochris.expdweb.utils.converters.LinkConverter;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
@@ -31,7 +32,10 @@ public class Project {
 
     @Id
     private Long id;
-    private String sourceLink;
+
+    @Convert(converter = LinkConverter.class)
+    private Link sourceLink;
+
     private ProgrammingLanguage language;
     private String framework;
     private String Description;

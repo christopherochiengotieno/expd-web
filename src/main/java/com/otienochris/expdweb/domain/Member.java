@@ -1,6 +1,7 @@
 package com.otienochris.expdweb.domain;
 
 import com.otienochris.expdweb.utils.converters.CreationDateConverter;
+import com.otienochris.expdweb.utils.converters.LinkConverter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,7 +38,8 @@ public class Member {
     private String interests;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Project> projects;
-    @OneToMany(cascade = CascadeType.ALL)
+
+    @Convert(converter = LinkConverter.class)
     private List<Link> links;
 
     @Convert(converter = CreationDateConverter.class)

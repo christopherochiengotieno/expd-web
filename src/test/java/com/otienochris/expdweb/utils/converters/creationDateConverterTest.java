@@ -10,34 +10,33 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class creationDateConverterTest {
 
-
+    private CreationDateConverter converter = new CreationDateConverter();
+    private final long time  = System.currentTimeMillis();
 
     @Test
     void convertToDatabaseColumn() {
 //        given
-        CreationDateConverter converter = new CreationDateConverter();
-        long time = System.currentTimeMillis();
+        Date actualDate = new Date(time);
+        Timestamp timestamp = new Timestamp(time);
 
 //        when
-        Timestamp timestamp = new Timestamp(time);
-        Date date = converter.convertToDatabaseColumn(timestamp);
+        Date convertedDate = converter.convertToDatabaseColumn(timestamp);
 
 //        then
-        assertThat(date.getTime()).isEqualTo(time);
+        assertThat(convertedDate.getTime()).isEqualTo(actualDate.getTime());
     }
 
     @Test
     void convertToEntityAttribute() {
 
 //        given
-        CreationDateConverter converter = new CreationDateConverter();
-        long time = System.currentTimeMillis();
+        Timestamp actualTimestamp = new Timestamp(time);
+        Date date = new Date(time);
 
 //        when
-        Date date = new Date(time);
-        Timestamp timestamp = converter.convertToEntityAttribute(date);
+        Timestamp convertedTimestamp = converter.convertToEntityAttribute(date);
 
 //        then
-        assertThat(timestamp.getTime()).isEqualTo(new Date(time).getTime());
+        assertThat(convertedTimestamp.getTime()).isEqualTo(actualTimestamp.getTime());
     }
 }
